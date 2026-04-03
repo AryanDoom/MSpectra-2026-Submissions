@@ -1,0 +1,7 @@
+flask
+bsdiff4
+scikit-learn
+joblib
+numpy
+# pymongo (optional, uncomment if using a live MongoDB instance)
+# pymongo

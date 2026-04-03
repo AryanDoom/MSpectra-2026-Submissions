@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASOS — AI-Assisted Storage Optimization System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <span class="nav__slash">//</span> asos
+    </div>
+    <ul class="nav__links">
+      <li><a href="/" class="dim">home</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#features">features</a></li>
+      <li><a href="#workflow">workflow</a></li>
+      <li><a href="#demo">demo</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger">[ menu ]</button>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="/" class="mobile-nav__link">home</a>
+    <a href="#about" class="mobile-nav__link">about</a>
+    <a href="#features" class="mobile-nav__link">features</a>
+    <a href="#workflow" class="mobile-nav__link">workflow</a>
+    <a href="#demo" class="mobile-nav__link">demo</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__content">
+      <div class="hero__label">// storage optimization system</div>
+      <h1 class="hero__title" id="typingTarget"></h1>
+      <p class="hero__desc">
+        An intelligent system that identifies, classifies, and removes<br />
+        redundant data to maximize storage efficiency.
+      </p>
+      <div class="hero__actions">
+        <a href="#workflow" class="btn btn--primary">[ View Workflow ]</a>
+        <a href="#demo" class="btn btn--outline">[ Run Demo ]</a>
+      </div>
+      <div class="hero__meta">
+        <span class="green">v2.4.1</span>
+        <span class="dim">--</span>
+        <span class="dim">MIT License</span>
+        <span class="dim">--</span>
+        <span class="dim">Node.js / Python / MongoDB</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-label">// 01 -- about</div>
+      <div class="about__grid">
+        <div class="about__text">
+          <h2 class="section-title">The Problem.<br /><span class="green">The Solution.</span></h2>
+          <p class="about__p">
+            Modern storage systems accumulate redundant, duplicate, and orphaned
+            data at scale. Without intelligent orchestration, manual cleanup is
+            error-prone, time-consuming, and inefficient.
+          </p>
+          <p class="about__p">
+            <span class="green">ASOS</span> applies AI-driven classification and
+            hashing-based deduplication to autonomously identify waste, safely
+            reference shared data, and trigger garbage collection -- recovering
+            significant storage without human intervention.
+          </p>
+        </div>
+        <div class="code-block">
+          <div class="code-block__header">
+            <div class="code-block__dots">
+              <span class="cb-dot cb-dot--red"></span>
+              <span class="cb-dot cb-dot--yellow"></span>
+              <span class="cb-dot cb-dot--green"></span>
+            </div>
+            <span class="code-block__filename">system_overview.py</span>
+          </div>
+          <pre class="code-block__body"><code><span class="ck">class</span> <span class="cc">ASOS</span>:
+  <span class="ck">def</span> <span class="cf">__init__</span>(self):
+    self.scanner  = <span class="cc">MetadataScanner</span>()
+    self.ai       = <span class="cc">Classifier</span>(model=<span class="cs">"gpt-4"</span>)
+    self.hasher   = <span class="cc">SHA256Engine</span>()
+    self.gc       = <span class="cc">GarbageCollector</span>()
+
+  <span class="ck">async def</span> <span class="cf">optimize</span>(self, path):
+    files  = <span class="ck">await</span> self.scanner.scan(path)
+    labels = <span class="ck">await</span> self.ai.classify(files)
+    hashes = self.hasher.deduplicate(files)
+    freed  = <span class="ck">await</span> self.gc.collect(hashes)
+    <span class="ck">return</span> OptimizationReport(freed)</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section section--stripe" id="features">
+    <div class="container">
+      <div class="section-label">// 02 -- features</div>
+      <h2 class="section-title">Core <span class="green">Capabilities</span></h2>
+      <div class="features__grid">
+
+        <div class="feat">
+          <div class="feat__num">01</div>
+          <h3 class="feat__title">Metadata Analysis</h3>
+          <p class="feat__desc">Deep inspection of file attributes -- timestamps, size, MIME type, access history -- to build a rich index before any decision is made.</p>
+          <div class="feat__tags"><span class="tag">fs.stat</span><span class="tag">inode</span></div>
+        </div>
+
+        <div class="feat">
+          <div class="feat__num">02</div>
+          <h3 class="feat__title">AI Classification</h3>
+          <p class="feat__desc">Neural classification engine labels files as critical, redundant, junk, or archive. Context-aware and trainable per workspace.</p>
+          <div class="feat__tags"><span class="tag">ML</span><span class="tag">NLP</span></div>
+        </div>
+
+        <div class="feat">
+          <div class="feat__num">03</div>
+          <h3 class="feat__title">Deduplication</h3>
+          <p class="feat__desc">SHA-256 content hashing detects identical files regardless of name or path. Duplicates are replaced with lightweight references.</p>
+          <div class="feat__tags"><span class="tag">SHA-256</span><span class="tag">symlink</span></div>
+        </div>
+
+        <div class="feat">
+          <div class="feat__num">04</div>
+          <h3 class="feat__title">Garbage Collection</h3>
+          <p class="feat__desc">Safe deletion pipeline with dry-run mode, quarantine staging, and rollback support. Zero data loss by design.</p>
+          <div class="feat__tags"><span class="tag tag--red">dry-run</span><span class="tag tag--red">rollback</span></div>
+        </div>
+
+        <div class="feat">
+          <div class="feat__num">05</div>
+          <h3 class="feat__title">Automated Cleanup</h3>
+          <p class="feat__desc">Cron-based or event-triggered scheduling keeps storage optimized continuously without manual intervention.</p>
+          <div class="feat__tags"><span class="tag">cron</span><span class="tag">webhook</span></div>
+        </div>
+
+        <div class="feat feat--accent">
+          <div class="feat__num red">06</div>
+          <h3 class="feat__title">Unified Reports</h3>
+          <p class="feat__desc">Real-time dashboards and exportable JSON/CSV reports with before/after diffs, efficiency metrics, and full timeline logs.</p>
+          <div class="feat__tags"><span class="tag">JSON</span><span class="tag">CSV</span><span class="tag">API</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section class="section" id="workflow">
+    <div class="container">
+      <div class="section-label">// 03 -- workflow</div>
+      <h2 class="section-title">The <span class="green">Pipeline</span></h2>
+
+      <div class="pipeline">
+        <div class="pipe-step" data-n="1"><span class="pipe-step__n">01</span><span class="pipe-step__name">Scan</span><span class="pipe-step__detail">Recursive Header Fingerprint</span></div>
+        <div class="pipe-arrow">--&gt;</div>
+        <div class="pipe-step" data-n="2"><span class="pipe-step__n">02</span><span class="pipe-step__name">Verify</span><span class="pipe-step__detail">Full SHA-256 Bit-Matching</span></div>
+        <div class="pipe-arrow">--&gt;</div>
+        <div class="pipe-step" data-n="3"><span class="pipe-step__n">03</span><span class="pipe-step__name">Classify</span><span class="pipe-step__detail">AI grading with 6 dimensions</span></div>
+        <div class="pipe-arrow">--&gt;</div>
+        <div class="pipe-step" data-n="4"><span class="pipe-step__n">04</span><span class="pipe-step__name">Optimize</span><span class="pipe-step__detail">Build Binary Delta Patches</span></div>
+        <div class="pipe-arrow">--&gt;</div>
+        <div class="pipe-step pipe-step--last" data-n="5"><span class="pipe-step__n">05</span><span class="pipe-step__name">GC</span><span class="pipe-step__detail">Safe Quarantine & Storage Release</span></div>
+      </div>
+
+      <div class="cmd-line">
+        <span class="green">$</span>
+        <span class="cmd-text">python src/main.py --target /data --mode fast</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="section section--stripe" id="stack">
+    <div class="container">
+      <div class="section-label">// 04 -- tech stack</div>
+      <h2 class="section-title">Built <span class="green">With</span></h2>
+      <div class="stack__grid">
+        <div class="stack-card">
+          <div class="stack-card__name">Python</div>
+          <div class="stack-card__role">Core Pipeline & Logic</div>
+          <div class="stack-card__ver">v3.10+</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card__name">Flask</div>
+          <div class="stack-card__role">UI Interface & API Server</div>
+          <div class="stack-card__ver">v2.3+</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card__name">bsdiff4</div>
+          <div class="stack-card__role">Binary Patching Engine</div>
+          <div class="stack-card__ver">Core Tier 3</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card__name">SKLearn</div>
+          <div class="stack-card__role">AI Classification Model</div>
+          <div class="stack-card__ver">v1.2+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section class="section" id="demo">
+    <div class="container">
+      <div class="section-label">// 05 -- interactive demo</div>
+      <h2 class="section-title">Run a <span class="green">Simulation</span></h2>
+
+      <div class="terminal" id="terminal">
+        <div class="terminal__bar">
+          <div class="terminal__dots">
+            <span class="cb-dot cb-dot--red"></span>
+            <span class="cb-dot cb-dot--yellow"></span>
+            <span class="cb-dot cb-dot--green"></span>
+          </div>
+          <span class="terminal__title">asos -- bash -- 80x24</span>
+        </div>
+        <div class="terminal__body" id="terminalBody">
+          <div class="terminal__welcome">
+            <span class="green">ASOS v4.1.0</span> -- Storage Optimization System<br />
+            Type <span class="green">"run cleanup"</span> or click the button below to start.
+          </div>
+          <div id="terminalOutput"></div>
+          <div class="terminal__prompt-row">
+            <span class="green">asos@system:~$</span>
+            <input class="terminal__input" id="terminalInput" type="text" placeholder="run cleanup" autocomplete="off" spellcheck="false" />
+          </div>
+        </div>
+      </div>
+
+      <div class="demo__btns">
+        <button class="btn btn--primary" id="runBtn">[ Run Cleanup Simulation ]</button>
+        <button class="btn btn--outline" id="clearBtn">[ Clear ]</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section section--stripe" id="stats">
+    <div class="container">
+      <div class="section-label">// 06 -- output metrics</div>
+      <h2 class="section-title">Last Run <span class="green">Results</span></h2>
+      <div class="stats__grid">
+        <div class="stat">
+          <div class="stat__label">Storage Recovered</div>
+          <div class="stat__val green"><span class="counter" id="stat-storage-reclaimed" data-target="0" data-decimals="2" data-suffix=" MB">0</span></div>
+          <div class="stat__bar"><div class="stat__fill" id="stat-bar-efficiency" style="--pct:0%"></div></div>
+          <div class="stat__sub" id="stat-scanned-total">Waiting for first run...</div>
+        </div>
+        <div class="stat">
+          <div class="stat__label">Files Processed</div>
+          <div class="stat__val green"><span class="counter" id="stat-files-processed" data-target="0" data-decimals="0" data-suffix="">0</span></div>
+          <div class="stat__bar"><div class="stat__fill" style="--pct:0%"></div></div>
+          <div class="stat__sub">across target directory</div>
+        </div>
+        <div class="stat">
+          <div class="stat__label">Duplicates Removed</div>
+          <div class="stat__val red"><span class="counter" id="stat-duplicates-removed" data-target="0" data-decimals="0" data-suffix="">0</span></div>
+          <div class="stat__bar"><div class="stat__fill stat__fill--red" id="stat-bar-duplicates" style="--pct:0%"></div></div>
+          <div class="stat__sub" id="stat-duplicate-percent">0% of total files</div>
+        </div>
+        <div class="stat">
+          <div class="stat__label">Efficiency Gain</div>
+          <div class="stat__val green"><span class="counter" id="stat-efficiency-gain" data-target="0" data-decimals="0" data-suffix="%">0</span></div>
+          <div class="stat__bar"><div class="stat__fill" id="stat-bar-total-gain" style="--pct:0%"></div></div>
+          <div class="stat__sub">storage reclaimed vs total</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand"><span class="green">// asos</span></div>
+        <div class="footer__tag dim">Identify. Classify. Eliminate. Optimize.</div>
+      </div>
+      <div class="footer__rule"></div>
+      <div class="footer__bottom">
+        <span class="dim">© 2025 AI-Assisted Storage Optimization System</span>
+        <span class="dim">MIT License -- Open Source</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
