@@ -4,12 +4,8 @@ import time
 from datetime import datetime
 from flask import Flask, send_from_directory, jsonify
 
-# Add src to sys.path for internal imports
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-# ---------------------------------------------------------
-# CLOUD-SAFE BOOTLOADER (Optional Libraries)
-# ---------------------------------------------------------
 try:
     from scanner import FileScanner
     from database import DatabaseManager, MONGO_AVAILABLE

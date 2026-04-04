@@ -62,5 +62,15 @@ Every file is graded across **6 dimensions** to determine its "Dead Weight" stat
     ```
 3.  **Access Dashboard**: Open `http://localhost:5000` to run the integrated simulator.
 
+#Video Link of the working project
+https://drive.google.com/file/d/1Q9yeFo-KpxIVV0paRJ5XxC2hhH5uqH1a/view?usp=sharing
+
+#Presentation Explaining the working of the project
+https://docs.google.com/presentation/d/1Xo9Z_DnYiThV0ea-d_1dYo82Hd_hO2OMvUWqxENd5QU/edit?usp=sharing
+
+#Live Website of the project
+https://m-spectra-2026-submissions-5j1y.vercel.app/
+
+
 ###  Build & Restoration
 Optimized files are moved to the `/trash` quarantine. Users can restore any file instantly via the mathematical reconstruction engine built into the dashboard.
