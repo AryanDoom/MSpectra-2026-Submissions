@@ -1,6 +1,6 @@
 # Submission: Team Larpers (ASOS v4.1.0)
 
-## 📌 Team Details
+## Team Details
 - **Team Name**: Larpers
 - **Team Members**: 
   - Aryan Shukla
@@ -62,5 +62,5 @@ Every file is graded across **6 dimensions** to determine its "Dead Weight" stat
     ```
 3.  **Access Dashboard**: Open `http://localhost:5000` to run the integrated simulator.
 
-### 🔧 Build & Restoration
+###  Build & Restoration
 Optimized files are moved to the `/trash` quarantine. Users can restore any file instantly via the mathematical reconstruction engine built into the dashboard.
