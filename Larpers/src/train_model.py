@@ -85,7 +85,7 @@ def train_and_save_model(model_dir="models"):
     # Save the Neural/Mathematical Weights structurally to the Hard Drive
     model_path = os.path.join(model_dir, "asos_classifier_v4.pkl")
     joblib.dump(clf, model_path)
-    print(f"✅ Securely Exported true AI Model payload to -> {model_path}")
+    print(f"Securely Exported true AI Model payload to -> {model_path}")
 
 if __name__ == "__main__":
     train_and_save_model()
