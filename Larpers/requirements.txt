@@ -1,6 +1,6 @@
 flask
 joblib
 numpy
-bsdiff4 
-scikit-learn 
-pymongo
+# bsdiff4 (Local Only - Requires Build Tools)
+# scikit-learn (Local Only - Built for Local Engine)
+# pymongo
