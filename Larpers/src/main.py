@@ -127,7 +127,7 @@ class StorageOptimizationPipeline:
         report += "-"*27
         print(report)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder=None) # Disable default static serving to use our custom one
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 @app.route("/")
@@ -142,6 +142,7 @@ def dashboard():
 
 @app.route("/<path:path>")
 def serve_assets(path):
+    # This route serves style.css, scripts.js, and any other assets
     return send_from_directory(ROOT_DIR, path)
 
 # Initialize a Global Shared Database for this session
